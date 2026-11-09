@@ -1,0 +1,209 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fce4ec;
+  font-family: Arial, sans-serif;
+}
+
+#tela {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 500px;
+  margin: 30px auto;
+  overflow: hidden;
+  border: 5px solid #f5a6c8;
+  border-radius: 12px;
+  background-color: #b9f0f5;
+}
+
+#fundo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+#nuvens {
+  position: absolute;
+  width: 350px;
+  top: 35px;
+  right: -350px;
+  z-index: 2;
+  animation: moverNuvens 3s linear infinite;
+}
+
+@keyframes moverNuvens {
+  from {
+    right: -350px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+#peach {
+  position: absolute;
+  width: 150px;
+  bottom: 55px;
+  left: 70px;
+  z-index: 4;
+  transform: scaleX(-1);
+}
+
+#plantinha {
+  position: absolute;
+  width: 215px;
+  bottom: 30px;
+  right: -170px;
+  z-index: 4;
+  animation: moverPlantinha 2s linear infinite;
+  animation-play-state: paused;
+  transform: scaleX(-1);
+}
+
+@keyframes moverPlantinha {
+  from {
+    right: -170px;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+#tela.jogando #plantinha {
+  animation-play-state: running;
+}
+
+#pontuacao {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  z-index: 6;
+  font-size: 20px;
+  font-weight: bold;
+  color: #a83275;
+}
+
+#cronometro {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 6;
+  font-size: 20px;
+  font-weight: bold;
+  color: #a83275;
+}
+
+#inicio,
+#fim {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(255, 231, 243, 0.92);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  color: #a83275;
+}
+
+#fim {
+  display: none;
+  z-index: 11;
+}
+
+#imagemGameOver {
+  width: 500px;
+  height: 333px;
+  object-fit: contain;
+}
+
+button {
+  background-color: #ed91bd;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d96ba1;
+}
+
+.pulo {
+  animation: pular 700ms ease-out;
+}
+
+@keyframes pular {
+  0% {
+    bottom: 55px;
+  }
+  50% {
+    bottom: 240px;
+  }
+  100% {
+    bottom: 55px;
+  }
+}
+.moeda {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ffd166;
+  border: 3px solid #fff0a6;
+  color: #ed5b9d;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 24px;
+  z-index: 5;
+  right: -50px;
+  animation: moverMoeda 4s linear infinite;
+  animation-play-state: paused;
+  box-shadow: 0 0 8px #fff0a6;
+}
+
+@keyframes moverMoeda {
+  from {
+    right: -50px;
+  }
+
+  to {
+    right: 100%;
+  }
+}
+
+#tela.jogando .moeda {
+  animation-play-state: running;
+}
+
+.moeda1 {
+  top: 280px;
+}
+
+.moeda2 {
+  top: 330px;
+  animation-delay: -1.3s;
+}
+
+.moeda3 {
+  top: 240px;
+  animation-delay: -2.6s;
+}
